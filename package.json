@@ -1,0 +1,48 @@
+{
+  "name": "advanced-tdd-with-nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:unit": "jest --testPathPattern=tests/unit",
+    "test:integration": "jest --testPathPattern=tests/integration",
+    "test:e2e": "jest --testPathPattern=tests/e2e",
+    "test:coverage": "jest --coverage",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "keywords": [
+    "tdd",
+    "nodejs",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Advanced TDD with Node.js project using Clean Architecture, DI, and TestContainers",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.7.4",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "@testcontainers/postgresql": "^10.13.2",
+    "testcontainers": "^10.13.2"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.8.0",
+    "zod": "^3.23.8"
+  },
+  "volta": {
+    "node": "22.20.0"
+  }
+}
