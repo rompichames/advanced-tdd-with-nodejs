@@ -2,6 +2,8 @@
 
 This project demonstrates advanced Test-Driven Development practices using Node.js with the built-in test runner.
 
+[![CI](https://github.com/guillaumeagile/advanced-tdd-with-nodejs/actions/workflows/ci.yml/badge.svg?branch=simple-TDD-with-dependencies%2Fwip)](https://github.com/guillaumeagile/advanced-tdd-with-nodejs/actions/workflows/ci.yml)
+
 ## Node.js Upgrade Instructions
 
 ### Current Status
