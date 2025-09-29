@@ -27,6 +27,10 @@ export class User implements Entity<UserId> {
     if (!validator.isValid(email )) {
       throw new Error('Email domain not allowed');
     }
+    // expliquez l'interet du validateur 'externe' plutot que d'en faire une méthode de la classe User
+    // preferez la Composition plutôt que l' Heritage (Inheritance)
+
+
     const now = new Date();
     return new User(id || UserId.generate(), email, name, now, now);
   }
@@ -72,6 +76,7 @@ export class User implements Entity<UserId> {
   }
 
   public toJSON() {
+    // remplacer ceci par un serializer JSON
     return {
       id: this.id.getValue(),
       email: this.email.getValue(),
