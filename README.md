@@ -94,10 +94,21 @@ Advanced-TDD-with-NodeJS/
 
 ## Available Scripts
 
-- `npm test` - Run all tests
-- `npm run test:watch` - Run tests in watch mode
+### Testing
+- `npm test` - Run all Jest tests
+- `npm run test:watch` - Run Jest tests in watch mode
+- `npm run test:unit` - Run unit tests only
+- `npm run test:integration` - Run integration tests only
+- `npm run test:coverage` - Run tests with coverage report
+- `npm run test:bdd` - Run BDD tests with Cucumber & Playwright
+- `npm run test:bdd:watch` - Run BDD tests in watch mode
+- `npm run test:bdd:report` - Generate HTML report for BDD tests
+
+### Development
 - `npm start` - Start the application
 - `npm run dev` - Start the application in watch mode
+- `npm run build` - Build TypeScript to JavaScript
+- `npm run build:watch` - Build in watch mode
 
 ## What's New in Node.js v22
 
@@ -107,13 +118,27 @@ Advanced-TDD-with-NodeJS/
 - **New built-in test runner features**: Enhanced testing capabilities
 - **Updated dependencies**: Latest versions of core dependencies
 
-## TDD Workflow
+## Testing Approaches
 
-1. **Write a failing test** in the `test/` directory
+This project supports two complementary testing approaches:
+
+### 1. TDD with Jest (Unit & Integration Tests)
+1. **Write a failing test** in the `tests/` directory
 2. **Run the test** with `npm test` to see it fail
 3. **Write minimal code** to make the test pass
 4. **Refactor** while keeping tests green
 5. **Repeat** the cycle
+
+See [TESTING_GUIDE.md](TESTING_GUIDE.md) for detailed Jest testing guidelines.
+
+### 2. BDD with Cucumber & Playwright (Executable Specifications)
+1. **Write a feature** in Gherkin syntax describing the behavior
+2. **Create step definitions** to implement the steps
+3. **Run scenarios** with `npm run test:bdd`
+4. **Implement the feature** to make scenarios pass
+5. **Use as living documentation** for stakeholders
+
+See [BDD_GUIDE.md](BDD_GUIDE.md) for comprehensive BDD testing guidelines.
 
 ## Getting Started
 

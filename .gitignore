@@ -141,6 +141,16 @@ coverage/
 test-results/
 junit.xml
 
+# Cucumber/BDD reports
+reports/
+*.cucumber.json
+cucumber-report.html
+cucumber-report.json
+cucumber-report.xml
+
+# Compiled BDD tests
+tests/bdd/dist/
+
 # IDE and Editor files
 .vscode/
 .idea/
