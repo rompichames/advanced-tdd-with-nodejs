@@ -2,22 +2,21 @@ import { ValueObject } from '../../shared/types/common.js';
 
 export class Email extends ValueObject<string> {
   private static readonly EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
+
   private static hasConsecutiveDots(email: string): boolean {
     return email.includes('..');
   }
 
   constructor(email: string) {
 
-    if (!Email.isValid(email)) {
+    if (!Email.isValid(email.trim())) {
       throw new Error(`Invalid email format: ${email}`);
     }
-    super(email);
+    super(email.trim().toLowerCase());
   }
 
   public static isValid(email: string): boolean {
-    return email.length > 0 && email.length <= 254 && !Email.hasConsecutiveDots(email)
-       // &&  Email.EMAIL_REGEX.test(email);
+    return email.length > 0 && email.length <= 254 && !Email.hasConsecutiveDots(email) && Email.EMAIL_REGEX.test(email);
   }
 
   public static create(email: string): Email {
