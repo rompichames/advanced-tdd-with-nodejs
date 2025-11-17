@@ -1,4 +1,6 @@
 import { ValueObject } from '../../shared/types/common.js';
+import { AntiSpamPort } from '../ports/anti-spam.port.js';
+
 
 export class Email extends ValueObject<string> {
   private static readonly EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,6 +22,29 @@ export class Email extends ValueObject<string> {
   }
 
   public static create(email: string): Email {
+    return new Email(email);
+  }
+
+  /**
+   * Creates an Email with both format AND anti-spam validation
+   * This is where the adapter is injected
+   */
+  public static async createWithAntiSpamCheck(
+    email: string,
+    antiSpamService: AntiSpamPort
+  ): Promise<Email> {
+    // First: validate format
+    if (!Email.isValid(email)) {
+      throw new Error(`Invalid email format: ${email}`);
+    }
+
+    // Second: check anti-spam service
+    const isBlocked = await antiSpamService.isBlocked(email);
+    if (isBlocked) {
+      throw new Error(`Email is blocked or blacklisted: ${email}`);
+    }
+
+    // If both checks pass, create the email
     return new Email(email);
   }
 
